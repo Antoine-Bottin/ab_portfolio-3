@@ -13,6 +13,7 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Vidéos de démo, Xperience et carte GitHub supprimées.
 - Bug polices corrigé (variables `next/font` déplacées sur `<html>`).
 - Hero : accroche « Vous avez l'idée ? Voyons comment la réaliser. » ; présentation complète déplacée dans la section Profil, avec 3 chiffres clés (5 ans, 6 devs, 10 ans) à la place des cartes.
+- Dépendances : `next` 15.5.29, `nodemailer` 10.3.1 ; `npm run build` OK.
 
 ## En cours
 - Rien d'ouvert.
@@ -28,7 +29,11 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Barres de pourcentage de compétences retirées : peu informatives et portées par la couleur seule.
 - Vidéos retirées : chaque projet a son site en ligne, et elles alourdissaient le dépôt.
 
+- `npm audit fix --force` refusé : imposerait Next 16 et rétrograderait typescript-eslint pour des alertes sans impact (postcss embarqué dans Next au build, minimatch en lint dev).
+
 ## Points ouverts / blocages
+- `npm audit` : 9 alertes restantes (postcss dans Next, minimatch dans typescript-eslint) ; à rechecker à la prochaine release 15.x de Next.
+- `nodemailer` est installé mais utilisé nulle part (`src/app/api` vide) : le retirer ou prévoir le formulaire de contact ?
 - Lovelo : licence web à acheter, sinon on garde Lilita One.
 - Logos de `public/assets/icons/` inutilisés : supprimer ou utiliser en vignettes ?
 - PlayOff : y a-t-il un volet « Club » en plus d'« Amateurs » à présenter ?
