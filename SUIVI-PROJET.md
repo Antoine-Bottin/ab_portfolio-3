@@ -37,6 +37,7 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 
 - `npm audit fix --force` refusé : imposerait Next 16 et rétrograderait typescript-eslint pour des alertes sans impact (postcss embarqué dans Next au build, minimatch en lint dev).
 - Yousing retiré des projets : le site yousing.ai n'est plus en ligne.
+- Logos inutilisés de `public/assets/icons/` supprimés : aucune référence dans le code.
 - Pas de formulaire de contact : LinkedIn, téléphone et mail suffisent, donc `nodemailer` retiré.
 - Offres sans prix, avec « délais indicatifs » : pas d'engagement chiffré avant d'avoir des durées réelles.
 - Badges du hero supprimés : le sous-titre suffit, le code couleur des profils reste dans le filtre Projets.
@@ -51,7 +52,6 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Contrôle visuel mobile à faire pour le hero (pile de briques) et les nouvelles cartes.
 - `npm audit` : 9 alertes restantes (postcss dans Next, minimatch dans typescript-eslint) ; à rechecker à la prochaine release 15.x de Next.
 - Lovelo : licence web à acheter, sinon on garde Lilita One.
-- Logos de `public/assets/icons/` inutilisés : supprimer ou utiliser en vignettes ?
 - PlayOff Club (réservation de terrain entre amis) : mentionné dans la carte, détails de réalisation (stack, périmètre) à compléter.
 - Projets PlayOff et Agents IA sans visuel ni lien.
 - Xperience mis hors ligne : supprimer le sous-domaine chez l'hébergeur.
