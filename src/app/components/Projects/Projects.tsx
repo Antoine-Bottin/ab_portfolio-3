@@ -15,7 +15,7 @@ type Project = {
   company?: Company
   context?: string
   description: string
-  profile: Profile
+  profiles: Profile[]
   technologies: string[]
   url?: string
   urlLabel?: string
@@ -26,7 +26,7 @@ const projects: Project[] = [
     title: 'Site de la commune de Sauqueville (76)',
     description:
       "Site Next.js connecté à l'API INSEE, avec le CMS headless Sanity : des modèles de mise en page pour publier les informations sans toucher au code.",
-    profile: 'dev',
+    profiles: ['product', 'dev'],
     technologies: ['Claude Code', 'Next.js', 'Sanity'],
     url: 'https://sauqueville.fr',
     urlLabel: 'sauqueville.fr',
@@ -35,7 +35,7 @@ const projects: Project[] = [
     title: "Site d'Edit-conseil",
     description:
       "Site Next.js avec maquette retravaillée sur Google Stitch, et migration de l'hébergement de Wix vers Vercel.",
-    profile: 'dev',
+    profiles: ['product', 'dev'],
     technologies: ['Claude Code', 'Next.js', 'Vercel'],
     url: 'https://edit-conseil.com',
     urlLabel: 'edit-conseil.com',
@@ -45,21 +45,21 @@ const projects: Project[] = [
     context: 'Projet École Cube, 2026',
     description:
       "Cadrage complet dans Notion : roadmap, backlog, jalons, conformité RGPD, choix de la stack. Base Airtable relationnelle (5 tables), champs calculés, automatisations, formulaires pré-remplis et interface utilisateur.",
-    profile: 'product',
+    profiles: ['product'],
     technologies: ['Notion', 'Airtable'],
   },
   {
     title: 'Agents IA et automatisations',
     description:
       "Scénarios Make avec agents IA (sorties JSON structurées, gestion d'erreurs), plus une instance n8n auto-hébergée (Proxmox, HTTPS, sécurisation).",
-    profile: 'product',
+    profiles: ['product'],
     technologies: ['Make', 'n8n'],
   },
   {
     title: 'Stemz Web',
     company: 'MWM',
     description: "Nouvelle génération de séparation de sources musicales.",
-    profile: 'dev',
+    profiles: ['dev'],
     technologies: ["React", "TypeScript", "Next.js", "Sass"],
     url: 'https://stemz.mwm.io/',
     urlLabel: 'stemz.mwm.io',
@@ -68,7 +68,7 @@ const projects: Project[] = [
     title: 'Color Pop',
     company: 'MWM',
     description: "Application de coloriage propulsée par l'IA pour toute la famille.",
-    profile: 'dev',
+    profiles: ['dev'],
     technologies: ["React", "TypeScript", "Next.js", "Sass"],
     url: 'https://colorpop.ai/',
     urlLabel: 'colorpop.ai',
@@ -77,7 +77,7 @@ const projects: Project[] = [
     title: 'Site MwM',
     company: 'MWM',
     description: "Site vitrine présentant les solutions IA et les services de l'entreprise.",
-    profile: 'dev',
+    profiles: ['dev'],
     technologies: ["React", "TypeScript", "Next.js", "Sass"],
     url: 'https://mwm.ai/',
     urlLabel: 'mwm.ai',
@@ -86,7 +86,7 @@ const projects: Project[] = [
     title: 'Yousing',
     company: 'MWM',
     description: "Application de chant et d'entraînement vocal avec retour en temps réel.",
-    profile: 'dev',
+    profiles: ['dev'],
     technologies: ["React", "TypeScript", "Next.js", "Sass"],
     url: 'https://www.yousing.ai/',
     urlLabel: 'yousing.ai',
@@ -95,7 +95,7 @@ const projects: Project[] = [
     title: 'Leatherspa',
     company: 'LeatherSpa',
     description: "Plateforme de services d'entretien et de restauration du cuir.",
-    profile: 'dev',
+    profiles: ['dev'],
     technologies: ["React", "Vanilla Extract"],
     url: 'https://www.leatherspa.com/',
     urlLabel: 'leatherspa.com',
@@ -127,7 +127,7 @@ const Projects = () => {
   const [activeFilter, setActiveFilter] = useState<'all' | Profile>('all')
 
   const filteredProjects =
-    activeFilter === 'all' ? projects : projects.filter((project) => project.profile === activeFilter)
+    activeFilter === 'all' ? projects : projects.filter((project) => project.profiles.includes(activeFilter))
 
   return (
     <section id="projects" className="projects" aria-labelledby="projects-title">
@@ -153,7 +153,11 @@ const Projects = () => {
             <li key={project.title} className="projects__card">
               <div className="projects__body">
                 <p className="projects__profile">
-                  <Tag color={profileColor[project.profile]}>{profileLabel[project.profile]}</Tag>
+                  {project.profiles.map((profile) => (
+                    <Tag key={profile} color={profileColor[profile]}>
+                      {profileLabel[profile]}
+                    </Tag>
+                  ))}
                   {project.company && <Tag color={companyColor[project.company]}>{project.company}</Tag>}
                 </p>
                 <h3 className="projects__title">{project.title}</h3>
