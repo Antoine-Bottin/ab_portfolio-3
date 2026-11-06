@@ -8,11 +8,8 @@ import './styles.scss'
 
 type Profile = 'product' | 'dev'
 
-type Company = 'MWM' | 'LeatherSpa'
-
 type Project = {
   title: string
-  company?: Company
   context?: string
   description: string
   profiles: Profile[]
@@ -57,7 +54,7 @@ const projects: Project[] = [
   },
   {
     title: 'Stemz Web',
-    company: 'MWM',
+    context: 'Frontend Engineer, MWM',
     description: "Nouvelle génération de séparation de sources musicales.",
     profiles: ['dev'],
     technologies: ["React", "TypeScript", "Next.js", "Sass"],
@@ -66,7 +63,7 @@ const projects: Project[] = [
   },
   {
     title: 'Color Pop',
-    company: 'MWM',
+    context: 'Frontend Engineer, MWM',
     description: "Application de coloriage propulsée par l'IA pour toute la famille.",
     profiles: ['dev'],
     technologies: ["React", "TypeScript", "Next.js", "Sass"],
@@ -75,7 +72,7 @@ const projects: Project[] = [
   },
   {
     title: 'Site MwM',
-    company: 'MWM',
+    context: 'Frontend Engineer, MWM',
     description: "Site vitrine présentant les solutions IA et les services de l'entreprise.",
     profiles: ['dev'],
     technologies: ["React", "TypeScript", "Next.js", "Sass"],
@@ -84,7 +81,7 @@ const projects: Project[] = [
   },
   {
     title: 'Yousing',
-    company: 'MWM',
+    context: 'Frontend Engineer, MWM',
     description: "Application de chant et d'entraînement vocal avec retour en temps réel.",
     profiles: ['dev'],
     technologies: ["React", "TypeScript", "Next.js", "Sass"],
@@ -93,7 +90,7 @@ const projects: Project[] = [
   },
   {
     title: 'Leatherspa',
-    company: 'LeatherSpa',
+    context: 'Développeur freelance, LeatherSpa',
     description: "Plateforme de services d'entretien et de restauration du cuir.",
     profiles: ['dev'],
     technologies: ["React", "Vanilla Extract"],
@@ -111,11 +108,6 @@ const filters: { label: string; value: 'all' | Profile }[] = [
 const profileColor: Record<Profile, TagColor> = {
   product: 'pink',
   dev: 'cyan',
-}
-
-const companyColor: Record<Company, TagColor> = {
-  MWM: 'cyan',
-  LeatherSpa: 'orange',
 }
 
 const profileLabel: Record<Profile, string> = {
@@ -158,7 +150,6 @@ const Projects = () => {
                       {profileLabel[profile]}
                     </Tag>
                   ))}
-                  {project.company && <Tag color={companyColor[project.company]}>{project.company}</Tag>}
                 </p>
                 <h3 className="projects__title">{project.title}</h3>
                 {project.context && <p className="projects__context">{project.context}</p>}
