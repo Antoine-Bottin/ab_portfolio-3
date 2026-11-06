@@ -47,10 +47,10 @@ const Hero = () => {
         <h1 id="hero-title" className="hero__title">
           Antoine Bottin
         </h1>
-        <p className="hero__role">Product Builder No-code & Développeur React / Next.js</p>
         <p className="hero__hook">
           Vous avez l&apos;idée ? <span className="hero__hook-accent">Voyons comment la réaliser.</span>
         </p>
+        <p className="hero__role">Product Builder No-code & Développeur React / Next.js</p>
         <p className="hero__tagline">
           5 ans de développement en production. Je conçois des produits de bout en bout, du recueil du
           besoin au prototype : cadrage, modélisation des données, automatisations et agents IA.
