@@ -72,14 +72,6 @@
     }
   }
 
-  &__video {
-    width: 100%;
-    height: 20rem;
-    object-fit: cover;
-    background: var(--palette-ink);
-    border-bottom: var(--border);
-  }
-
   &__profile {
     display: flex;
     flex-wrap: wrap;

@@ -8,12 +8,11 @@ import './styles.scss'
 
 type Profile = 'product' | 'dev'
 
-type Company = 'MWM' | 'LeatherSpa' | 'Perso'
+type Company = 'MWM' | 'LeatherSpa'
 
 type Project = {
   title: string
   company?: Company
-  videoSrc?: string
   context?: string
   description: string
   profile: Profile
@@ -59,7 +58,6 @@ const projects: Project[] = [
   {
     title: 'Stemz Web',
     company: 'MWM',
-    videoSrc: '/assets/videos/Stemz.mp4',
     description: "Nouvelle génération de séparation de sources musicales.",
     profile: 'dev',
     technologies: ["React", "TypeScript", "Next.js", "Sass"],
@@ -69,7 +67,6 @@ const projects: Project[] = [
   {
     title: 'Color Pop',
     company: 'MWM',
-    videoSrc: '/assets/videos/ColorPop.mp4',
     description: "Application de coloriage propulsée par l'IA pour toute la famille.",
     profile: 'dev',
     technologies: ["React", "TypeScript", "Next.js", "Sass"],
@@ -79,7 +76,6 @@ const projects: Project[] = [
   {
     title: 'Site MwM',
     company: 'MWM',
-    videoSrc: '/assets/videos/Website.mp4',
     description: "Site vitrine présentant les solutions IA et les services de l'entreprise.",
     profile: 'dev',
     technologies: ["React", "TypeScript", "Next.js", "Sass"],
@@ -89,7 +85,6 @@ const projects: Project[] = [
   {
     title: 'Yousing',
     company: 'MWM',
-    videoSrc: '/assets/videos/YouSing.mov',
     description: "Application de chant et d'entraînement vocal avec retour en temps réel.",
     profile: 'dev',
     technologies: ["React", "TypeScript", "Next.js", "Sass"],
@@ -99,32 +94,11 @@ const projects: Project[] = [
   {
     title: 'Leatherspa',
     company: 'LeatherSpa',
-    videoSrc: '/assets/videos/Leatherspa.mp4',
     description: "Plateforme de services d'entretien et de restauration du cuir.",
     profile: 'dev',
     technologies: ["React", "Vanilla Extract"],
     url: 'https://www.leatherspa.com/',
     urlLabel: 'leatherspa.com',
-  },
-  {
-    title: 'Xperience',
-    company: 'Perso',
-    videoSrc: '/assets/videos/Xperience.mp4',
-    description: "Champ de saisie IA qui répond aux questions sur mon expérience.",
-    profile: 'dev',
-    technologies: ["T3 Stack", "TypeScript", "Mod\u00e8le OpenAI fine-tun\u00e9"],
-    url: 'https://xperience.abottin.dev',
-    urlLabel: 'xperience.abottin.dev',
-  },
-  {
-    title: 'GitHub',
-    company: 'Perso',
-    videoSrc: '/assets/videos/github.mp4',
-    description: "Mes dépôts publics.",
-    profile: 'dev',
-    technologies: ["Git"],
-    url: 'https://github.com/Antoine-Bottin',
-    urlLabel: 'github.com/Antoine-Bottin',
   },
 ]
 
@@ -142,7 +116,6 @@ const profileColor: Record<Profile, TagColor> = {
 const companyColor: Record<Company, TagColor> = {
   MWM: 'cyan',
   LeatherSpa: 'orange',
-  Perso: 'green',
 }
 
 const profileLabel: Record<Profile, string> = {
@@ -178,15 +151,6 @@ const Projects = () => {
         <ul className="projects__grid">
           {filteredProjects.map((project) => (
             <li key={project.title} className="projects__card">
-              {project.videoSrc && (
-                <video
-                  src={project.videoSrc}
-                  controls
-                  preload="none"
-                  className="projects__video"
-                  aria-label={`Démo vidéo : ${project.title}`}
-                />
-              )}
               <div className="projects__body">
                 <p className="projects__profile">
                   <Tag color={profileColor[project.profile]}>{profileLabel[project.profile]}</Tag>
