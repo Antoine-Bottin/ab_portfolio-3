@@ -18,6 +18,13 @@ footer {
   scroll-snap-align: start;
 }
 
+// Desktop : accroche stricte. Une section plus haute que l'écran reste scrollable librement à l'intérieur.
+@include up(lg) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+}
+
 body {
   margin: 0;
   background: var(--color-bg);
