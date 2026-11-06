@@ -6,7 +6,12 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 12rem var(--container-padding) var(--space-9);
+  min-height: 100dvh; // mobile : la 1re section tient exactement dans l'écran visible
+  padding: 8.8rem var(--container-padding) 8rem;
+
+  @include up(md) {
+    padding: 12rem var(--container-padding) 16rem;
+  }
   background: var(--color-bg-inverse);
   color: var(--color-text-inverse);
   text-align: center;
@@ -16,8 +21,85 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-5);
+    gap: clamp(var(--space-3), 2.4dvh, var(--space-7)); // l'air s'adapte à la hauteur d'écran
+    position: relative;
+    z-index: 1;
     max-width: 90rem;
+
+    // Entrée « briques » : chaque bloc tombe et rebondit à sa place, l'un après l'autre.
+    // `backwards` : l'état de départ n'est appliqué que pendant l'animation,
+    // sans elle (reduced-motion) tout reste visible.
+    @media (prefers-reduced-motion: no-preference) {
+      > * {
+        animation: hero-drop 700ms var(--ease-pop) backwards;
+      }
+
+      @for $i from 2 through 6 {
+        > :nth-child(#{$i}) {
+          animation-delay: ($i - 1) * 90ms;
+        }
+      }
+    }
+  }
+
+  // Pile de briques (décor) : 14 colonnes × 3 rangées, centrée au fond du hero
+  &__bricks {
+    --brick: 2rem;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: calc(14 * var(--brick));
+    height: calc(3 * var(--brick));
+    transform: translateX(-50%);
+    pointer-events: none;
+
+    @include up(md) {
+      --brick: 3.2rem;
+    }
+  }
+
+  &__piece {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    // Chute en escalier (steps) façon Tetris, pièce après pièce, après l'entrée du contenu
+    @media (prefers-reduced-motion: no-preference) {
+      animation: hero-fall 1.8s steps(18, end) backwards;
+      animation-delay: calc(1.2s + var(--i) * 0.5s);
+    }
+
+    &--pink {
+      --brick-color: var(--palette-pink);
+    }
+
+    &--yellow {
+      --brick-color: var(--palette-yellow);
+    }
+
+    &--cyan {
+      --brick-color: var(--palette-cyan);
+    }
+
+    &--green {
+      --brick-color: var(--palette-green);
+    }
+
+    &--orange {
+      --brick-color: var(--palette-orange);
+    }
+  }
+
+  &__cell {
+    position: absolute;
+    bottom: calc(var(--y) * var(--brick));
+    left: calc(var(--x) * var(--brick));
+    width: var(--brick);
+    height: var(--brick);
+    background: var(--brick-color);
+    border: 0.2rem solid var(--palette-ink);
+    box-sizing: border-box;
   }
 
   &__picture {
@@ -25,8 +107,8 @@
   }
 
   &__frame {
-    width: 16rem;
-    height: 16rem;
+    width: min(14rem, 19dvh);
+    height: min(14rem, 19dvh);
     overflow: hidden;
     background: var(--palette-yellow);
     border: var(--border);
@@ -86,14 +168,19 @@
   }
 
   &__role {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-base);
+
+    @include up(md) {
+      font-size: var(--font-size-xl);
+    }
   }
 
   &__hook {
     font-family: var(--font-display);
     font-size: var(--font-size-2xl);
-    line-height: var(--line-height-tight);
+    line-height: 1.25;
     letter-spacing: var(--letter-spacing-display);
     text-transform: uppercase;
   }
@@ -101,7 +188,8 @@
   // Fond rose + encre (6.02:1) : la couleur ne porte pas le sens, le texte est lisible seul
   &__hook-accent {
     display: inline-block;
-    padding: 0 var(--space-3);
+    margin-top: var(--space-3);
+    padding: var(--space-1) var(--space-3);
     background: var(--palette-pink);
     color: var(--palette-ink);
     border: var(--border);
@@ -110,47 +198,9 @@
     transform: rotate(-1deg);
   }
 
-  &__badges {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-4);
-  }
-
-  &__badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-2) var(--space-4) var(--space-2) var(--space-2);
-    color: var(--palette-ink);
-    border: var(--border);
-    border-radius: var(--radius-pill);
-    box-shadow: var(--shadow-sm);
-    font-weight: var(--font-weight-bold);
-    text-decoration: none;
-
-    &--product {
-      background: var(--palette-pink);
-    }
-
-    &--dev {
-      background: var(--palette-cyan);
-    }
-  }
-
-  &__badge-flag {
-    padding: 0 var(--space-3);
-    background: var(--palette-ink);
-    color: var(--palette-white);
-    border-radius: var(--radius-pill);
-    font-family: var(--font-display);
-    font-size: var(--font-size-xs);
-    text-transform: uppercase;
-  }
-
   &__socials {
     display: flex;
-    gap: var(--space-4);
+    gap: var(--space-5);
   }
 
   &__social {
@@ -171,11 +221,12 @@
 
   &__actions {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
 
-    @include up(sm) {
-      flex-direction: row;
+    @include up(md) {
+      gap: var(--space-4);
     }
   }
 
@@ -193,17 +244,37 @@
   }
 
   &__scroll {
+    display: none;
     position: absolute;
-    bottom: var(--space-5);
+    bottom: var(--space-4);
     left: 50%;
     transform: translateX(-50%);
     color: var(--color-text-highlight);
+
+    @include up(md) {
+      display: block;
+      bottom: calc(9.6rem + var(--space-4));
+    }
+
     animation: hero-bounce 1.6s var(--ease-pop) infinite;
   }
 
   // Focus lisible sur fond bleu pétrole
   :focus-visible {
     outline-color: var(--palette-yellow);
+  }
+}
+
+@keyframes hero-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-4.8rem) scale(0.9);
+  }
+}
+
+@keyframes hero-fall {
+  from {
+    transform: translateY(-150vh);
   }
 }
 
