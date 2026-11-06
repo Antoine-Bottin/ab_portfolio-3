@@ -94,6 +94,15 @@
     text-transform: uppercase;
   }
 
+  // Projet de formation : fond orange pour le distinguer des réalisations pro (encre sur orange, 7.04:1)
+  &__card--training {
+    background: var(--palette-orange);
+  }
+
+  &__card--training &__context {
+    color: var(--palette-ink);
+  }
+
   &__context {
     color: var(--palette-navy);
     font-style: italic;

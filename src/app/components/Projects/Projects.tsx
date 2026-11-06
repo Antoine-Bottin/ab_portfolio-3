@@ -11,6 +11,7 @@ type Profile = 'product' | 'dev'
 type Project = {
   title: string
   context?: string
+  training?: boolean
   description: string
   profiles: Profile[]
   technologies: string[]
@@ -40,6 +41,7 @@ const projects: Project[] = [
   {
     title: 'PlayOff Amateurs, plateforme de gestion de compétitions sportives',
     context: 'Projet École Cube, 2026',
+    training: true,
     description:
       "Cadrage complet dans Notion : roadmap, backlog, jalons, conformité RGPD, choix de la stack. Base Airtable relationnelle (5 tables), champs calculés, automatisations, formulaires pré-remplis et interface utilisateur.",
     profiles: ['product'],
@@ -142,7 +144,10 @@ const Projects = () => {
 
         <ul className="projects__grid">
           {filteredProjects.map((project) => (
-            <li key={project.title} className="projects__card">
+            <li
+              key={project.title}
+              className={`projects__card${project.training ? ' projects__card--training' : ''}`}
+            >
               <div className="projects__body">
                 <p className="projects__profile">
                   {project.profiles.map((profile) => (
@@ -150,6 +155,7 @@ const Projects = () => {
                       {profileLabel[profile]}
                     </Tag>
                   ))}
+                  {project.training && <Tag color="navy">Projet de formation</Tag>}
                 </p>
                 <h3 className="projects__title">{project.title}</h3>
                 {project.context && <p className="projects__context">{project.context}</p>}
