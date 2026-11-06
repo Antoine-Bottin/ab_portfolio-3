@@ -54,8 +54,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr">
-      <body className={`${openSans.variable} ${lilitaOne.variable}`}>                
+    <html lang="fr" className={`${openSans.variable} ${lilitaOne.variable}`}>
+      <body>                
         <Analytics />
         {children}
       </body>
