@@ -8,7 +8,14 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 8rem;
+  scroll-padding-top: 6.4rem; // hauteur de la navigation fixe
+  // « proximity » : n'accroche que près d'une section, sans piéger les sections plus hautes que l'écran
+  scroll-snap-type: y proximity;
+}
+
+main > section,
+footer {
+  scroll-snap-align: start;
 }
 
 body {
@@ -61,6 +68,7 @@ button {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+    scroll-snap-type: none;
   }
 
   *,
