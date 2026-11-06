@@ -48,6 +48,6 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - `npm audit` : 9 alertes restantes (postcss dans Next, minimatch dans typescript-eslint) ; à rechecker à la prochaine release 15.x de Next.
 - Lovelo : licence web à acheter, sinon on garde Lilita One.
 - Logos de `public/assets/icons/` inutilisés : supprimer ou utiliser en vignettes ?
-- PlayOff : y a-t-il un volet « Club » en plus d'« Amateurs » à présenter ?
+- PlayOff Club (réservation de terrain entre amis) : mentionné dans la carte, détails de réalisation (stack, périmètre) à compléter.
 - Projets PlayOff et Agents IA sans visuel ni lien.
 - Xperience mis hors ligne : supprimer le sous-domaine chez l'hébergeur.

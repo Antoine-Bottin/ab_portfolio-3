@@ -39,11 +39,11 @@ const projects: Project[] = [
     urlLabel: 'edit-conseil.com',
   },
   {
-    title: 'PlayOff Amateurs, plateforme de gestion de compétitions sportives',
+    title: 'PlayOff, gestion de compétitions sportives et réservation de terrains',
     context: 'Projet École Cube, 2026',
     training: true,
     description:
-      "Cadrage complet dans Notion : roadmap, backlog, jalons, conformité RGPD, choix de la stack. Base Airtable relationnelle (5 tables), champs calculés, automatisations, formulaires pré-remplis et interface utilisateur.",
+      "Deux volets : PlayOff Amateurs, pour gérer des compétitions, et PlayOff Club, une application pour réserver un terrain entre amis. Cadrage complet dans Notion : roadmap, backlog, jalons, conformité RGPD, choix de la stack. Volet Amateurs : base Airtable relationnelle (5 tables), champs calculés, automatisations, formulaires pré-remplis et interface utilisateur.",
     profiles: ['product'],
     technologies: ['Notion', 'Airtable'],
   },
