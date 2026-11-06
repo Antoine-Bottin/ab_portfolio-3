@@ -19,6 +19,7 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Nouvelle section Offres (« Ce que je livre ») : 6 cartes colorées avec délai indicatif, entrée « Offres » dans la navigation.
 - Favicon `icon.svg` (AB jaune sur rose) ; images de partage OpenGraph et Twitter 1200×630 générées par Next (Lilita One embarquée dans `src/app/fonts/`), balises `twitter:card` ajoutées.
 - SEO : `robots.ts`, `sitemap.ts`, canonical, JSON-LD `Person`, titre raccourci (`src/app/site.ts` centralise URL et titre).
+- Sécurité : en-têtes HTTP dans `next.config.ts` (CSP, nosniff, X-Frame-Options, Referrer-Policy, COOP, Permissions-Policy) suite au rapport HTTP Observatory (50/100).
 
 ## En cours
 - Rien d'ouvert.
@@ -40,7 +41,10 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Offres sans prix, avec « délais indicatifs » : pas d'engagement chiffré avant d'avoir des durées réelles.
 - Badges du hero supprimés : le sous-titre suffit, le code couleur des profils reste dans le filtre Projets.
 
+- CSP avec `'unsafe-inline'` pour les scripts : une CSP à nonce imposerait un rendu dynamique et ferait perdre la page statique, pas justifié pour ce site.
+
 ## Points ouverts / blocages
+- Relancer HTTP Observatory après déploiement pour confirmer le score.
 - À faire hors code : ajouter le site dans Google Search Console et soumettre le sitemap ; vérifier la redirection www / sans www dans Vercel.
 - Favicon : dans un SVG, Lilita One n'est pas chargée par le navigateur (repli Arial Black) ; convertir « AB » en tracé si le rendu déçoit.
 - Délais de la section Offres : ordres de grandeur à ajuster (`offers` dans `Offers.tsx`).
