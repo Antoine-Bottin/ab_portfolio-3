@@ -110,11 +110,6 @@
     transform: rotate(-1deg);
   }
 
-  &__tagline {
-    max-width: 60rem;
-    font-size: var(--font-size-lg);
-  }
-
   &__badges {
     display: flex;
     flex-wrap: wrap;

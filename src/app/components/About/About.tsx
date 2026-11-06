@@ -36,11 +36,14 @@ const About = () => (
         <div className="about__text">
           <p>
             Product Builder, entre chef de projet digital et développeur no-code, avec 5 ans de
-            développement React / Next.js en production.
+            développement React/Next.js en production. Je conçois des produits de bout en bout, du
+            recueil du besoin au prototype : cadrage fonctionnel, modélisation des données,
+            automatisations et agents IA. Mon atout : savoir quand le no-code ne suffit plus, et parler
+            le même langage que les équipes tech.
           </p>
           <p>
-            Je conçois des produits de bout en bout, du recueil du besoin au prototype : cadrage
-            fonctionnel, modélisation des données, automatisations et agents IA.
+            Dix ans de management en restauration m&apos;ont appris à comprendre le client et donc le
+            besoin avant de concevoir.
           </p>
         </div>
 
