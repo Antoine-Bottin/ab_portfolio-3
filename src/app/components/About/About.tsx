@@ -1,30 +1,11 @@
-import { Utensils, Wrench, MessagesSquare } from 'lucide-react'
 import SectionHeading from '../SectionHeading/SectionHeading'
 import { TagColor } from '../Tag/Tag'
 import './styles.scss'
 
-const highlights: { icon: React.ReactNode; title: string; description: string; color: TagColor }[] = [
-  {
-    icon: <Utensils size={32} aria-hidden="true" />,
-    title: 'Le besoin avant la solution',
-    description:
-      "Dix ans de management en restauration m'ont appris à comprendre le client, et donc le besoin, avant de concevoir.",
-    color: 'green',
-  },
-  {
-    icon: <Wrench size={32} aria-hidden="true" />,
-    title: 'Savoir quand le no-code ne suffit plus',
-    description:
-      "Notion, Airtable, Make, n8n pour aller vite ; du code React / Next.js quand le produit l'exige.",
-    color: 'cyan',
-  },
-  {
-    icon: <MessagesSquare size={32} aria-hidden="true" />,
-    title: 'Le même langage que les équipes tech',
-    description:
-      "4 ans dans une équipe frontend de 6 développeurs chez MWM : j'écris les specs comme je les aurais voulu les lire.",
-    color: 'pink',
-  },
+const stats: { value: string; label: string; color: TagColor }[] = [
+  { value: '5 ans', label: 'de développement React / Next.js en production', color: 'cyan' },
+  { value: '6 devs', label: "dans l'équipe Frontend de MWM, pendant 4 ans", color: 'pink' },
+  { value: '10 ans', label: 'de management en restauration', color: 'green' },
 ]
 
 const About = () => (
@@ -47,14 +28,11 @@ const About = () => (
           </p>
         </div>
 
-        <ul className="about__highlights">
-          {highlights.map((highlight) => (
-            <li key={highlight.title} className="about__highlight">
-              <span className={`about__icon about__icon--${highlight.color}`}>{highlight.icon}</span>
-              <div>
-                <h3 className="about__highlight-title">{highlight.title}</h3>
-                <p>{highlight.description}</p>
-              </div>
+        <ul className="about__stats">
+          {stats.map((stat) => (
+            <li key={stat.value} className="about__stat">
+              <span className={`about__stat-value about__stat-value--${stat.color}`}>{stat.value}</span>
+              <p>{stat.label}</p>
             </li>
           ))}
         </ul>
