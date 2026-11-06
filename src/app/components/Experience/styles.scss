@@ -1,0 +1,81 @@
+@use 'mixins' as *;
+
+.experience {
+  @include section;
+
+  &__inner {
+    @include container;
+    max-width: 90rem;
+  }
+
+  &__subtitle {
+    margin-block: var(--space-8) var(--space-6);
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-regular);
+    letter-spacing: var(--letter-spacing-display);
+    text-transform: uppercase;
+  }
+
+  &__timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  &__entry {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border: var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+
+    // Pastille « brique » de couleur
+    &::before {
+      content: '';
+      position: absolute;
+      top: var(--space-5);
+      right: var(--space-5);
+      width: 2.4rem;
+      height: 2.4rem;
+      border: var(--border);
+      border-radius: 50%;
+      background: var(--palette-yellow);
+    }
+
+    &--pink::before {
+      background: var(--color-brick-pink);
+    }
+    &--cyan::before {
+      background: var(--color-brick-cyan);
+    }
+    &--green::before {
+      background: var(--color-brick-green);
+    }
+  }
+
+  &__entry-title {
+    padding-right: var(--space-7);
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-regular);
+    letter-spacing: var(--letter-spacing-display);
+    text-transform: uppercase;
+  }
+
+  &__meta {
+    color: var(--palette-navy);
+    font-style: italic;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+  }
+}

@@ -20,29 +20,31 @@ const lilitaOne = Lilita_One({
 })
 
 export const metadata: Metadata = {
-    title: 'Antoine Bottin - Portfolio ',
-    description: 'This is my dev portfolio',
+    title: 'Antoine Bottin · Product Builder No-code & Développeur React / Next.js',
+    description:
+        'Product Builder No-code et développeur React / Next.js : cadrage, modélisation de données, automatisations, agents IA et sites web en production.',
     icons: [{ rel: 'icon', url: '/favicon.ico' }],
     keywords: [
-        'web',
-        'developer',
-        'portfolio',
         'Antoine Bottin',
-        'software ingeneer',
-        'reactJS',
-        'NextJs',
-        'NodeJs',
+        'Product Builder',
+        'No-code',
+        'Notion',
+        'Airtable',
+        'Make',
+        'n8n',
+        'développeur React',
+        'Next.js',
         'TypeScript',
-        'JavaScript',
-        'HTML',
+        'Normandie',
     ],
     metadataBase: new URL('https://www.portfolio.abottin.dev'),
     openGraph: {
-        title: 'Antoine Bottin - Portfolio ',
-        description: 'This is my dev portfolio',
-        images: [{ url: '/assets/pictures/Photo_CV.jpg' }],
+        title: 'Antoine Bottin · Product Builder No-code & Développeur React / Next.js',
+        description: 'Je conçois des produits de bout en bout, du recueil du besoin au prototype.',
+        images: [{ url: '/assets/pictures/photo_cv.jpg' }],
         type: 'website',
         url: 'https://www.portfolio.abottin.dev',
+        locale: 'fr_FR',
     },
 }
 
@@ -52,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body className={`${openSans.variable} ${lilitaOne.variable}`}>                
         <Analytics />
         {children}

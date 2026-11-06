@@ -6,114 +6,82 @@ import SectionHeading from '../SectionHeading/SectionHeading'
 import Tag, { TagColor } from '../Tag/Tag'
 import './styles.scss'
 
-type Company = 'mwm' | 'leatherspa' | 'personnal'
+type Profile = 'product' | 'dev'
 
 type Project = {
-  pictureSrc: string
-  videoSrc: string
   title: string
-  url: string
-  company: Company
+  context?: string
   description: string
+  profile: Profile
   technologies: string[]
+  url?: string
+  urlLabel?: string
 }
 
 const projects: Project[] = [
   {
-    pictureSrc: '/assets/icons/stemz-logo.svg',
-    videoSrc: '/assets/videos/Stemz.mp4',
-    title: 'Stemz Web',
-    url: 'https://stemz.mwm.io/',
-    company: 'mwm',
-    description: 'Next generation of music source separation.',
-    technologies: ['React', 'TypeScript', 'NextJs', 'Sass'],
+    title: 'Site de la commune de Sauqueville (76)',
+    description:
+      "Site Next.js connecté à l'API INSEE, avec le CMS headless Sanity : des modèles de mise en page pour publier les informations sans toucher au code.",
+    profile: 'dev',
+    technologies: ['Claude Code', 'Next.js', 'Sanity'],
+    url: 'https://sauqueville.fr',
+    urlLabel: 'sauqueville.fr',
   },
   {
-    pictureSrc: '/assets/icons/color-pop.png',
-    videoSrc: '/assets/videos/ColorPop.mp4',
-    title: 'Color Pop',
-    url: 'https://colorpop.ai/',
-    company: 'mwm',
-    description: 'AI-powered coloring app for the entire family.',
-    technologies: ['React', 'TypeScript', 'NextJs', 'Sass'],
+    title: "Site d'Edit-conseil",
+    description:
+      "Site Next.js avec maquette retravaillée sur Google Stitch, et migration de l'hébergement de Wix vers Vercel.",
+    profile: 'dev',
+    technologies: ['Claude Code', 'Next.js', 'Vercel'],
+    url: 'https://edit-conseil.com',
+    urlLabel: 'edit-conseil.com',
   },
   {
-    pictureSrc: '/assets/icons/mwm-rounded.webp',
-    videoSrc: '/assets/videos/Website.mp4',
-    title: 'MwM Website',
-    url: 'https://mwm.ai/',
-    company: 'mwm',
-    description: 'Corporate website showcasing AI solutions and company services.',
-    technologies: ['React', 'TypeScript', 'NextJs', 'Sass'],
+    title: 'PlayOff Amateurs, plateforme de gestion de compétitions sportives',
+    context: 'Projet École Cube, 2026',
+    description:
+      "Cadrage complet dans Notion : roadmap, backlog, jalons, conformité RGPD, choix de la stack. Base Airtable relationnelle (5 tables), champs calculés, automatisations, formulaires pré-remplis et interface utilisateur.",
+    profile: 'product',
+    technologies: ['Notion', 'Airtable'],
   },
   {
-    pictureSrc: '/assets/icons/yousing-logo.svg',
-    videoSrc: '/assets/videos/YouSing.mov',
-    title: 'Yousing',
-    url: 'https://www.yousing.ai/',
-    company: 'mwm',
-    description: 'AI-powered singing and voice training application with real-time feedback.',
-    technologies: ['React', 'TypeScript', 'NextJs', 'Sass'],
-  },
-  {
-    pictureSrc: '/assets/icons/ls-monogram.svg',
-    videoSrc: '/assets/videos/Leatherspa.mp4',
-    title: 'Leatherspa',
-    url: 'https://www.leatherspa.com/',
-    company: 'leatherspa',
-    description: 'Premium leather care and restoration service platform.',
-    technologies: ['React', 'Vanilla Extract Style'],
-  },
-  {
-    pictureSrc: '/assets/pictures/photo_cv.jpg',
-    videoSrc: '/assets/videos/Xperience.mp4',
-    title: 'Xperience',
-    url: 'https://xperience.abottin.dev',
-    company: 'personnal',
-    description: 'AI-powered input answering your questions about my experience.',
-    technologies: ['T3 Stack', 'TypeScript', 'OpenAI fine-tuned model'],
-  },
-  {
-    pictureSrc: '/assets/icons/github-mark-white.png',
-    videoSrc: '/assets/videos/github.mp4',
-    title: 'Github',
-    url: 'https://github.com/Antoine-Bottin',
-    company: 'personnal',
-    description: 'My github public repos.',
-    technologies: ['Versionning', 'Git'],
+    title: 'Agents IA et automatisations',
+    description:
+      "Scénarios Make avec agents IA (sorties JSON structurées, gestion d'erreurs), plus une instance n8n auto-hébergée (Proxmox, HTTPS, sécurisation).",
+    profile: 'product',
+    technologies: ['Make', 'n8n'],
   },
 ]
 
-const filters: { label: string; value: 'all' | Company }[] = [
-  { label: 'All projects', value: 'all' },
-  { label: 'MWM', value: 'mwm' },
-  { label: 'Leatherspa', value: 'leatherspa' },
-  { label: 'Personal projects', value: 'personnal' },
+const filters: { label: string; value: 'all' | Profile }[] = [
+  { label: 'Tous', value: 'all' },
+  { label: 'Product Builder', value: 'product' },
+  { label: 'Développeur', value: 'dev' },
 ]
 
-const companyColor: Record<Company, TagColor> = {
-  mwm: 'cyan',
-  leatherspa: 'orange',
-  personnal: 'green',
+const profileColor: Record<Profile, TagColor> = {
+  product: 'pink',
+  dev: 'cyan',
+}
+
+const profileLabel: Record<Profile, string> = {
+  product: 'Product Builder',
+  dev: 'Développeur',
 }
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState<'all' | Company>('all')
+  const [activeFilter, setActiveFilter] = useState<'all' | Profile>('all')
 
   const filteredProjects =
-    activeFilter === 'all' ? projects : projects.filter((project) => project.company === activeFilter)
+    activeFilter === 'all' ? projects : projects.filter((project) => project.profile === activeFilter)
 
   return (
     <section id="projects" className="projects" aria-labelledby="projects-title">
       <div className="projects__inner">
-        <SectionHeading
-          id="projects-title"
-          inverse
-          title="Featured projects"
-          subtitle="A showcase of my recent work across different companies and personal projects."
-        />
+        <SectionHeading id="projects-title" inverse title="Projets" />
 
-        <div className="projects__filters" role="group" aria-label="Filter projects">
+        <div className="projects__filters" role="group" aria-label="Filtrer les projets">
           {filters.map((filter) => (
             <button
               key={filter.value}
@@ -130,34 +98,27 @@ const Projects = () => {
         <ul className="projects__grid">
           {filteredProjects.map((project) => (
             <li key={project.title} className="projects__card">
-              <div className="projects__media">
-                <video
-                  src={project.videoSrc}
-                  controls
-                  preload="metadata"
-                  className="projects__video"
-                  aria-label={`${project.title} demo video`}
-                />
-                <span className="projects__company">
-                  <Tag color={companyColor[project.company]}>{project.company.toUpperCase()}</Tag>
-                </span>
-              </div>
-
               <div className="projects__body">
+                <p className="projects__profile">
+                  <Tag color={profileColor[project.profile]}>{profileLabel[project.profile]}</Tag>
+                </p>
                 <h3 className="projects__title">{project.title}</h3>
+                {project.context && <p className="projects__context">{project.context}</p>}
                 <p>{project.description}</p>
-                <ul className="projects__techs" aria-label="Technologies">
+                <ul className="projects__techs" aria-label="Outils">
                   {project.technologies.map((tech) => (
                     <li key={tech}>
                       <Tag color="yellow">{tech}</Tag>
                     </li>
                   ))}
                 </ul>
-                <a className="projects__link" href={project.url} target="_blank" rel="noopener noreferrer">
-                  View project
-                  <ExternalLink size={16} aria-hidden="true" />
-                  <span className="sr-only"> {project.title} (opens in a new tab)</span>
-                </a>
+                {project.url && (
+                  <a className="projects__link" href={project.url} target="_blank" rel="noopener noreferrer">
+                    {project.urlLabel}
+                    <ExternalLink size={16} aria-hidden="true" />
+                    <span className="sr-only"> (s&apos;ouvre dans un nouvel onglet)</span>
+                  </a>
+                )}
               </div>
             </li>
           ))}

@@ -95,28 +95,6 @@
     font-size: var(--font-size-lg);
   }
 
-  &__counter {
-    padding: var(--space-4) var(--space-5);
-    background: var(--color-surface);
-    color: var(--color-text);
-    border: var(--border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-  }
-
-  &__counter-label {
-    font-family: var(--font-display);
-    font-size: var(--font-size-xs);
-    letter-spacing: var(--letter-spacing-display);
-    text-transform: uppercase;
-    color: var(--palette-pink-ink);
-  }
-
-  &__counter-value {
-    font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
-    font-size: var(--font-size-md);
-  }
-
   &__badges {
     display: flex;
     flex-wrap: wrap;
@@ -136,18 +114,12 @@
     font-weight: var(--font-weight-bold);
     text-decoration: none;
 
-    &--new {
-      background: var(--palette-green);
-      transition: transform var(--duration-base) var(--ease-pop);
-
-      &:hover {
-        color: var(--palette-ink);
-        transform: translate(-0.2rem, -0.2rem) rotate(-1deg);
-      }
+    &--product {
+      background: var(--palette-pink);
     }
 
-    &--soon {
-      background: var(--palette-orange);
+    &--dev {
+      background: var(--palette-cyan);
     }
   }
 

@@ -3,13 +3,11 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { ChevronDown, Github, Linkedin, RotateCcw } from 'lucide-react'
-import useExperienceCounter from '../../hooks/useDeveloperPeriod'
 import './styles.scss'
 
 const profilePictures = ['/assets/pictures/photo_cv.jpg', '/assets/pictures/photo_cv2.jpg']
 
 const Hero = () => {
-  const timeElapsed = useExperienceCounter()
   const [currentPictureIndex, setCurrentPictureIndex] = useState(0)
   const [isRotating, setIsRotating] = useState(false)
 
@@ -39,8 +37,8 @@ const Hero = () => {
             type="button"
             className="hero__switch"
             onClick={switchPicture}
-            aria-label="Don't like this picture? Switch it"
-            title="Don't like this picture? Switch it!"
+            aria-label="Changer de photo"
+            title="Changer de photo"
           >
             <RotateCcw size={20} aria-hidden="true" />
           </button>
@@ -49,35 +47,23 @@ const Hero = () => {
         <h1 id="hero-title" className="hero__title">
           Antoine Bottin
         </h1>
-        <p className="hero__role">
-          Frontend Developer <strong>first</strong> & Fullstack Developer Enthusiast
-        </p>
+        <p className="hero__role">Product Builder No-code & Développeur React / Next.js</p>
         <p className="hero__tagline">
-          I craft functional digital experiences that solve real problems and delight users.
+          5 ans de développement en production. Je conçois des produits de bout en bout, du recueil du
+          besoin au prototype : cadrage, modélisation des données, automatisations et agents IA.
         </p>
-
-        <div className="hero__counter">
-          <p className="hero__counter-label">Developer for</p>
-          <p className="hero__counter-value">{timeElapsed || 'Calculating experience...'}</p>
-        </div>
 
         <ul className="hero__badges">
           <li>
-            <a
-              className="hero__badge hero__badge--new"
-              href="https://xperience.abottin.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="hero__badge-flag">New</span>
-              AI Resume Assistant
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
+            <p className="hero__badge hero__badge--product">
+              <span className="hero__badge-flag">Profil</span>
+              Product Builder No-code
+            </p>
           </li>
           <li>
-            <p className="hero__badge hero__badge--soon">
-              <span className="hero__badge-flag">Soon</span>
-              React Native Mobile App
+            <p className="hero__badge hero__badge--dev">
+              <span className="hero__badge-flag">Profil</span>
+              Développeur React / Next.js
             </p>
           </li>
         </ul>
@@ -89,7 +75,7 @@ const Hero = () => {
               href="https://github.com/Antoine-Bottin"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub (opens in a new tab)"
+              aria-label="GitHub (s'ouvre dans un nouvel onglet)"
             >
               <Github size={24} aria-hidden="true" />
             </a>
@@ -100,7 +86,7 @@ const Hero = () => {
               href="https://www.linkedin.com/in/antoine-bottin/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn (opens in a new tab)"
+              aria-label="LinkedIn (s'ouvre dans un nouvel onglet)"
             >
               <Linkedin size={24} aria-hidden="true" />
             </a>
@@ -109,15 +95,15 @@ const Hero = () => {
 
         <div className="hero__actions">
           <a className="hero__cta hero__cta--primary" href="#contact">
-            Get in touch
+            Me contacter
           </a>
           <a className="hero__cta hero__cta--secondary" href="#projects">
-            View my work
+            Voir mes projets
           </a>
         </div>
       </div>
 
-      <a className="hero__scroll" href="#about" aria-label="Scroll to About section">
+      <a className="hero__scroll" href="#about" aria-label="Aller à la section Profil">
         <ChevronDown size={32} aria-hidden="true" />
       </a>
     </section>

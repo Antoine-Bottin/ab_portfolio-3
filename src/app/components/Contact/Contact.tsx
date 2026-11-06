@@ -12,15 +12,15 @@ const contactInfo = [
   },
   {
     icon: <Phone size={24} aria-hidden="true" />,
-    title: 'Phone',
+    title: 'Téléphone',
     value: '+33 6 47 50 23 17',
     href: 'tel:+33647502317',
     color: 'cyan',
   },
   {
     icon: <MapPin size={24} aria-hidden="true" />,
-    title: 'Location',
-    value: 'Dieppe, Normandie, FR',
+    title: 'Localisation',
+    value: 'Sauqueville (76), Normandie',
     color: 'pink',
   },
 ]
@@ -39,13 +39,12 @@ const Contact = () => (
     <div className="contact__inner">
       <SectionHeading
         id="contact-title"
-        title="Get in touch"
-        subtitle="Ready to bring your ideas to life? Let's discuss your next project."
+        title="Contact"
       />
 
       <p className="contact__intro">
-        I'm always interested in new opportunities and exciting projects. Whether you have a question or
-        just want to say hello, I'd love to hear from you.
+        Un besoin à cadrer, un prototype à construire ou un produit React / Next.js à faire évoluer ?
+        Parlons-en.
       </p>
 
       <ul className="contact__list">
@@ -60,7 +59,7 @@ const Contact = () => (
         ))}
       </ul>
 
-      <ul className="contact__socials" aria-label="Social networks">
+      <ul className="contact__socials" aria-label="Réseaux sociaux">
         {socialLinks.map((link) => (
           <li key={link.label}>
             <a
@@ -68,7 +67,7 @@ const Contact = () => (
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${link.label} (opens in a new tab)`}
+              aria-label={`${link.label} (s'ouvre dans un nouvel onglet)`}
             >
               {link.icon}
             </a>

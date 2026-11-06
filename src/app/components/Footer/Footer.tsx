@@ -2,10 +2,11 @@ import { Heart, Code } from 'lucide-react'
 import './styles.scss'
 
 const links = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
+  { name: 'Accueil', href: '#home' },
+  { name: 'Profil', href: '#about' },
+  { name: 'Projets', href: '#projects' },
+  { name: 'Expérience', href: '#experience' },
+  { name: 'Compétences', href: '#skills' },
   { name: 'Contact', href: '#contact' },
 ]
 
@@ -18,11 +19,11 @@ const Footer = () => {
         <div className="footer__grid">
           <div>
             <p className="footer__brand">Antoine Bottin</p>
-            <p>Crafting digital experiences that make a difference.</p>
+            <p>Product Builder No-code & Développeur React / Next.js.</p>
           </div>
 
-          <nav aria-label="Footer navigation">
-            <h2 className="footer__title">Quick links</h2>
+          <nav aria-label="Navigation de pied de page">
+            <h2 className="footer__title">Liens rapides</h2>
             <ul className="footer__links">
               {links.map((link) => (
                 <li key={link.name}>
@@ -35,20 +36,20 @@ const Footer = () => {
           </nav>
 
           <address className="footer__contact">
-            <h2 className="footer__title">Get in touch</h2>
+            <h2 className="footer__title">Contact</h2>
             <a className="footer__link" href="mailto:a.bottin.dev@gmail.com">
               a.bottin.dev@gmail.com
             </a>
             <a className="footer__link" href="tel:+33647502317">
               +33 6 47 50 23 17
             </a>
-            <span>Dieppe, Normandie, FR</span>
+            <span>Sauqueville (76), Normandie</span>
           </address>
         </div>
 
         <p className="footer__legal">
-          © {currentYear} Antoine Bottin. Made with <Heart size={16} aria-label="love" /> and{' '}
-          <Code size={16} aria-label="code" />. All rights reserved.
+          © {currentYear} Antoine Bottin. Fait avec <Heart size={16} aria-label="amour" /> et{' '}
+          <Code size={16} aria-label="code" />.
         </p>
       </div>
     </footer>

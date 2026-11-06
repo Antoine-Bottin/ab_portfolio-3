@@ -1,63 +1,47 @@
-import { Code, Palette, Zap } from 'lucide-react'
+import { Utensils, Wrench, MessagesSquare } from 'lucide-react'
 import SectionHeading from '../SectionHeading/SectionHeading'
-import Tag, { TagColor } from '../Tag/Tag'
+import { TagColor } from '../Tag/Tag'
 import './styles.scss'
 
 const highlights: { icon: React.ReactNode; title: string; description: string; color: TagColor }[] = [
   {
-    icon: <Code size={32} aria-hidden="true" />,
-    title: 'Clean Code',
-    description: 'Writing maintainable, scalable code that stands the test of time',
+    icon: <Utensils size={32} aria-hidden="true" />,
+    title: 'Le besoin avant la solution',
+    description:
+      "Dix ans de management en restauration m'ont appris à comprendre le client, et donc le besoin, avant de concevoir.",
     color: 'green',
   },
   {
-    icon: <Palette size={32} aria-hidden="true" />,
-    title: 'Creative Design',
-    description: 'Crafting beautiful, intuitive user experiences that users love',
+    icon: <Wrench size={32} aria-hidden="true" />,
+    title: 'Savoir quand le no-code ne suffit plus',
+    description:
+      "Notion, Airtable, Make, n8n pour aller vite ; du code React / Next.js quand le produit l'exige.",
     color: 'cyan',
   },
   {
-    icon: <Zap size={32} aria-hidden="true" />,
-    title: 'Performance',
-    description: 'Building fast, optimized applications that deliver results',
+    icon: <MessagesSquare size={32} aria-hidden="true" />,
+    title: 'Le même langage que les équipes tech',
+    description:
+      "4 ans dans une équipe frontend de 6 développeurs chez MWM : j'écris les specs comme je les aurais voulu les lire.",
     color: 'pink',
   },
-]
-
-const techs: { name: string; color: TagColor }[] = [
-  { name: 'React', color: 'cyan' },
-  { name: 'React Native', color: 'cyan' },
-  { name: 'TypeScript', color: 'yellow' },
-  { name: 'NextJs', color: 'green' },
-  { name: 'Sass', color: 'pink' },
-  { name: 'T3 Stack', color: 'orange' },
 ]
 
 const About = () => (
   <section id="about" className="about" aria-labelledby="about-title">
     <div className="about__inner">
-      <SectionHeading
-        id="about-title"
-        title="About me"
-        subtitle="I'm a passionate developer with 4+ years of experience creating digital solutions that make a difference."
-      />
+      <SectionHeading id="about-title" title="Profil" />
 
       <div className="about__grid">
         <div className="about__text">
           <p>
-            Passionate about web development, I have deepened my Frontend Javascript / Typescript skills
-            with the ReactJS and NextJS frameworks for three years. I love taking on new challenges, and
-            discovering new languages does not scare me at all. I enjoy manipulating data and work on my
-            backend skills in my spare time. Reconverted for four years, I have found in this
-            ever-evolving field something to satisfy my appetite for creativity.
+            Product Builder, entre chef de projet digital et développeur no-code, avec 5 ans de
+            développement React / Next.js en production.
           </p>
-          <ul className="about__techs" aria-label="Main technologies">
-            {techs.map((tech) => (
-              <li key={tech.name}>
-                <Tag color={tech.color}>{tech.name}</Tag>
-              </li>
-            ))}
-          </ul>
+          <p>
+            Je conçois des produits de bout en bout, du recueil du besoin au prototype : cadrage
+            fonctionnel, modélisation des données, automatisations et agents IA.
+          </p>
         </div>
 
         <ul className="about__highlights">

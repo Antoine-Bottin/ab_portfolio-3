@@ -5,10 +5,11 @@ import { Menu, X } from 'lucide-react'
 import './styles.scss'
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
+  { name: 'Accueil', href: '#home' },
+  { name: 'Profil', href: '#about' },
+  { name: 'Projets', href: '#projects' },
+  { name: 'Expérience', href: '#experience' },
+  { name: 'Compétences', href: '#skills' },
   { name: 'Contact', href: '#contact' },
 ]
 
@@ -18,9 +19,9 @@ const Navigation = () => {
   return (
     <header className="navigation">
       <a className="navigation__skip" href="#about">
-        Skip to content
+        Aller au contenu
       </a>
-      <nav className="navigation__bar" aria-label="Main navigation">
+      <nav className="navigation__bar" aria-label="Navigation principale">
         <a className="navigation__brand" href="#home">
           Antoine Bottin
         </a>
@@ -30,7 +31,7 @@ const Navigation = () => {
           className="navigation__toggle"
           aria-expanded={isOpen}
           aria-controls="navigation-menu"
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
           onClick={() => setIsOpen((open) => !open)}
         >
           {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
