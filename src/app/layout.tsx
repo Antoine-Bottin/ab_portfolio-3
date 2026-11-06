@@ -1,9 +1,23 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Open_Sans, Lilita_One } from 'next/font/google'
+import '../styles/tokens.scss'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/next'
 
-const inter = Inter({ subsets: ['latin'] })
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  variable: '--font-open-sans',
+  display: 'swap',
+})
+
+// Alternative libre à Lovelo (licence web à confirmer)
+const lilitaOne = Lilita_One({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-lilita-one',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
     title: 'Antoine Bottin - Portfolio ',
@@ -39,7 +53,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>                
+      <body className={`${openSans.variable} ${lilitaOne.variable}`}>                
         <Analytics />
         {children}
       </body>

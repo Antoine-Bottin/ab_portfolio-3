@@ -1,0 +1,142 @@
+// src/styles/tokens.scss
+// Design tokens du portfolio — issus du CV « Product Builder » (palette mesurée sur le PDF).
+// Convention : html { font-size: 62.5% } => 1rem = 10px.
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  // ─────────────────────────────────────────────
+  // Couleurs — palette brute
+  // ─────────────────────────────────────────────
+  --palette-cream: #f9ede8;
+  --palette-navy: #23506a;
+  --palette-ink: #15112b;
+  --palette-yellow: #ffd23f;
+  --palette-pink: #ff4fa3;
+  --palette-orange: #ff7a30;
+  --palette-cyan: #3ec6e0;
+  --palette-green: #7bd389;
+  --palette-white: #ffffff;
+
+  // Variantes foncées pour du TEXTE coloré sur fond clair (contraste ≥ 4.5:1 sur --palette-cream)
+  --palette-pink-ink: #b5176b; // 5.55:1
+  --palette-orange-ink: #a83e00; // 5.46:1
+
+  // ─────────────────────────────────────────────
+  // Couleurs — rôles (à utiliser dans les composants)
+  // ─────────────────────────────────────────────
+  --color-bg: var(--palette-cream);
+  --color-bg-inverse: var(--palette-navy);
+  --color-surface: var(--palette-white);
+
+  --color-text: var(--palette-ink); // 15.96:1 sur cream
+  --color-text-muted: var(--palette-navy); // 7.54:1 sur cream
+  --color-text-inverse: var(--palette-white); // 8.65:1 sur navy
+  --color-text-highlight: var(--palette-yellow); // 5.99:1 sur navy (titres, noms)
+
+  --color-link: var(--palette-navy);
+  --color-link-hover: var(--palette-pink-ink);
+  --color-focus: var(--palette-pink-ink);
+
+  --color-border: var(--palette-ink);
+
+  // Accents : en AIDE DE FOND uniquement, avec texte/contour --palette-ink
+  --color-accent-primary: var(--palette-pink);
+  --color-accent-secondary: var(--palette-yellow);
+  --color-accent-tertiary: var(--palette-orange);
+  --color-accent-info: var(--palette-cyan);
+  --color-accent-success: var(--palette-green);
+
+  // Couleurs des briques (Lego) / tags techno
+  --color-brick-pink: var(--palette-pink);
+  --color-brick-yellow: var(--palette-yellow);
+  --color-brick-cyan: var(--palette-cyan);
+  --color-brick-green: var(--palette-green);
+  --color-brick-orange: var(--palette-orange);
+  --color-brick-navy: var(--palette-navy);
+
+  // ─────────────────────────────────────────────
+  // Typographie
+  // ─────────────────────────────────────────────
+  --font-display: 'Lovelo', var(--font-lilita-one), 'Arial Black', sans-serif; // titres, nom, sections
+  --font-body: var(--font-open-sans), 'Open Sans', system-ui, sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  --line-height-tight: 1.1;
+  --line-height-base: 1.6;
+  --letter-spacing-display: 0.02em;
+
+  // Échelle (rem, base 10px) — fluide pour les gros titres
+  --font-size-xs: 1.2rem;
+  --font-size-sm: 1.4rem;
+  --font-size-md: 1.6rem;
+  --font-size-lg: 1.8rem;
+  --font-size-xl: 2.4rem;
+  --font-size-2xl: clamp(2.8rem, 2.2rem + 2vw, 4rem);
+  --font-size-3xl: clamp(3.6rem, 2.4rem + 4vw, 6.4rem);
+  --font-size-hero: clamp(4.8rem, 2.4rem + 8vw, 12rem);
+
+  // ─────────────────────────────────────────────
+  // Espacements (échelle de 4 → 0.4rem)
+  // ─────────────────────────────────────────────
+  --space-1: 0.4rem;
+  --space-2: 0.8rem;
+  --space-3: 1.2rem;
+  --space-4: 1.6rem;
+  --space-5: 2.4rem;
+  --space-6: 3.2rem;
+  --space-7: 4.8rem;
+  --space-8: 6.4rem;
+  --space-9: 9.6rem;
+
+  --container-max: 120rem;
+  --container-padding: var(--space-5);
+
+  // ─────────────────────────────────────────────
+  // Formes : style « sticker / brique »
+  // ─────────────────────────────────────────────
+  --radius-sm: 0.8rem;
+  --radius-md: 1.6rem;
+  --radius-lg: 2.4rem;
+  --radius-pill: 99.9rem;
+
+  --border-width: 0.3rem;
+  --border: var(--border-width) solid var(--color-border);
+
+  // Ombres dures décalées (pas de flou) — signature du CV
+  --shadow-sm: 0.3rem 0.3rem 0 var(--palette-ink);
+  --shadow-md: 0.6rem 0.6rem 0 var(--palette-ink);
+  --shadow-lg: 1rem 1rem 0 var(--palette-ink);
+  --shadow-yellow: 0.4rem 0.4rem 0 var(--palette-yellow); // texte/élément sur fond navy
+
+  // ─────────────────────────────────────────────
+  // Motion
+  // ─────────────────────────────────────────────
+  --duration-fast: 120ms;
+  --duration-base: 220ms;
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1); // petit rebond « sticker »
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  // ─────────────────────────────────────────────
+  // Z-index
+  // ─────────────────────────────────────────────
+  --z-base: 0;
+  --z-sticky: 10;
+  --z-overlay: 100;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
+}
+
+// Mode sombre : volontairement NON prévu au départ (le CV n'a qu'une identité claire + navy).
+// Si besoin plus tard : inverser --color-bg / --color-text via [data-theme='dark'].
