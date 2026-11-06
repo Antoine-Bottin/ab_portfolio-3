@@ -9,7 +9,7 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Tailwind retiré ; SCSS BEM global (`globals.scss`, `_mixins.scss`), snap scroll (mandatory desktop, proximity ailleurs).
 - Composants refaits en dossier par composant : Navigation, Hero, About (Profil), Projects, Experience, Skills, Contact, Footer, + SectionHeading et Tag.
 - Contenu réécrit en français depuis le CV ; compteur d'expérience (`dayjs`) retiré.
-- Projets : 4 du CV + Stemz, Color Pop, Site MwM, Yousing, Leatherspa ; filtre par profil (un projet peut avoir les deux) ; PlayOff en orange (projet de formation).
+- Projets : 4 du CV + Stemz, Color Pop, Site MwM, Leatherspa ; filtre par profil (un projet peut avoir les deux) ; PlayOff en orange (projet de formation).
 - Vidéos de démo, Xperience et carte GitHub supprimées.
 - Bug polices corrigé (variables `next/font` déplacées sur `<html>`).
 - Hero : accroche « Vous avez l'idée ? Voyons comment la réaliser. » ; présentation complète déplacée dans la section Profil, avec 3 chiffres clés (5 ans, 6 devs, 10 ans) à la place des cartes.
@@ -34,6 +34,7 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Vidéos retirées : chaque projet a son site en ligne, et elles alourdissaient le dépôt.
 
 - `npm audit fix --force` refusé : imposerait Next 16 et rétrograderait typescript-eslint pour des alertes sans impact (postcss embarqué dans Next au build, minimatch en lint dev).
+- Yousing retiré des projets : le site yousing.ai n'est plus en ligne.
 - Pas de formulaire de contact : LinkedIn, téléphone et mail suffisent, donc `nodemailer` retiré.
 - Offres sans prix, avec « délais indicatifs » : pas d'engagement chiffré avant d'avoir des durées réelles.
 - Badges du hero supprimés : le sous-titre suffit, le code couleur des profils reste dans le filtre Projets.

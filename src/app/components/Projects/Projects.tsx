@@ -82,15 +82,6 @@ const projects: Project[] = [
     urlLabel: 'mwm.ai',
   },
   {
-    title: 'Yousing',
-    context: 'Frontend Engineer, MWM',
-    description: "Application de chant et d'entraînement vocal avec retour en temps réel.",
-    profiles: ['dev'],
-    technologies: ["React", "TypeScript", "Next.js", "Sass"],
-    url: 'https://www.yousing.ai/',
-    urlLabel: 'yousing.ai',
-  },
-  {
     title: 'Leatherspa',
     context: 'Développeur freelance, LeatherSpa',
     description: "Plateforme de services d'entretien et de restauration du cuir.",
