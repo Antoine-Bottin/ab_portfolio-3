@@ -11,13 +11,15 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Contenu réécrit en français depuis le CV ; compteur d'expérience (`dayjs`) retiré.
 - Projets : 4 du CV + Stemz, Color Pop, Site MwM, Yousing, Leatherspa ; filtre par profil (un projet peut avoir les deux) ; PlayOff en orange (projet de formation).
 - Vidéos de démo, Xperience et carte GitHub supprimées.
+- Bug polices corrigé (variables `next/font` déplacées sur `<html>`).
+- Hero : accroche « Vous avez l'idée ? Voyons comment la réaliser. » ; présentation complète déplacée dans la section Profil, avec 3 chiffres clés (5 ans, 6 devs, 10 ans) à la place des cartes.
 
 ## En cours
 - Rien d'ouvert.
 
 ## Prochaine étape
 - Contrôle visuel complet dans le navigateur (`npm run dev`) : desktop, mobile, snap scroll sur Projets et Expérience.
-- Valider les 3 cartes du Profil (textes rédigés par Claude, pas issus du CV).
+- Vérifier que les polices (Lilita One / Open Sans) s'affichent bien et décider pour Lovelo.
 
 ## Décisions (avec le pourquoi)
 - Site en français : le CV et le DESIGN.md le sont.
