@@ -5,7 +5,7 @@ _Dernière mise à jour : 2026-11-06_
 Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Product Builder No-code et développeur React / Next.js. Contenu issu du CV 2026, direction « ludique / geek » décrite dans `DESIGN.md`.
 
 ## Fait
-- Tokens CSS (`src/styles/tokens.scss`), `DESIGN.md`, Sass installé, polices via `next/font` (Open Sans, Lilita One en remplacement de Lovelo).
+- Tokens CSS (`src/styles/tokens.scss`), `DESIGN.md`, Sass installé, polices via `next/font` (Open Sans, Lilita One).
 - Tailwind retiré ; SCSS BEM global (`globals.scss`, `_mixins.scss`), snap scroll (mandatory desktop, proximity ailleurs).
 - Composants refaits en dossier par composant : Navigation, Hero, About (Profil), Projects, Experience, Skills, Contact, Footer, + SectionHeading et Tag.
 - Contenu réécrit en français depuis le CV ; compteur d'expérience (`dayjs`) retiré.
@@ -26,7 +26,7 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 
 ## Prochaine étape
 - Contrôle visuel complet dans le navigateur (`npm run dev`) : desktop, mobile, snap scroll sur Projets et Expérience, section Offres.
-- Vérifier que les polices (Lilita One / Open Sans) s'affichent bien et décider pour Lovelo.
+- Vérifier que les polices (Lilita One / Open Sans) s'affichent bien.
 
 ## Décisions (avec le pourquoi)
 - Site en français : le CV et le DESIGN.md le sont.
@@ -43,6 +43,7 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Badges du hero supprimés : le sous-titre suffit, le code couleur des profils reste dans le filtre Projets.
 
 - CSP avec `'unsafe-inline'` pour les scripts : une CSP à nonce imposerait un rendu dynamique et ferait perdre la page statique, pas justifié pour ce site.
+- Lilita One gardée définitivement (libre, présente aussi sur le CV via Canva) : Lovelo abandonnée.
 
 ## Points ouverts / blocages
 - Relancer HTTP Observatory après déploiement pour confirmer le score.
@@ -51,7 +52,6 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Délais de la section Offres : ordres de grandeur à ajuster (`offers` dans `Offers.tsx`).
 - Contrôle visuel mobile à faire pour le hero (pile de briques) et les nouvelles cartes.
 - `npm audit` : 9 alertes restantes (postcss dans Next, minimatch dans typescript-eslint) ; à rechecker à la prochaine release 15.x de Next.
-- Lovelo : licence web à acheter, sinon on garde Lilita One.
 - PlayOff Club (réservation de terrain entre amis) : mentionné dans la carte, détails de réalisation (stack, périmètre) à compléter.
 - Projets PlayOff et Agents IA sans visuel ni lien.
 - Xperience mis hors ligne : supprimer le sous-domaine chez l'hébergeur.

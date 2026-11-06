@@ -32,7 +32,7 @@ Règles de contraste (ratios mesurés) :
 
 ## Typographie
 
-- Titres, nom, sections : **Lovelo Black** (`--font-display`), capitales. ⚠️ Lovelo est une police à licence : vérifier l'usage web, sinon alternative libre (ex. Lilita One) déjà prévue dans la pile de fallback.
+- Titres, nom, sections : **Lilita One** (`--font-display`), capitales. Police libre, aussi utilisée sur le CV (Canva).
 - Corps : **Open Sans** (`--font-body`).
 - Tailles via `--font-size-*` uniquement, en rem.
 

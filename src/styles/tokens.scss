@@ -60,7 +60,7 @@ html {
   // ─────────────────────────────────────────────
   // Typographie
   // ─────────────────────────────────────────────
-  --font-display: 'Lovelo', var(--font-lilita-one), 'Arial Black', sans-serif; // titres, nom, sections
+  --font-display: var(--font-lilita-one), 'Arial Black', sans-serif; // titres, nom, sections
   --font-body: var(--font-open-sans), 'Open Sans', system-ui, sans-serif;
 
   --font-weight-regular: 400;

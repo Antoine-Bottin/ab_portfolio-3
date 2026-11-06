@@ -12,7 +12,7 @@ const openSans = Open_Sans({
   display: 'swap',
 })
 
-// Alternative libre à Lovelo (licence web à confirmer)
+// Police des titres (libre, auto-hébergée par next/font)
 const lilitaOne = Lilita_One({
   subsets: ['latin'],
   weight: '400',
