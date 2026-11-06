@@ -38,16 +38,24 @@ export const renderOgImage = async () => {
         <div style={{ display: 'flex', marginTop: 28, fontSize: 38, color: '#ffffff' }}>
           Product Builder No-code & Développeur React / Next.js
         </div>
-        <div style={{ display: 'flex', marginTop: 28, fontSize: 38, color: '#ffffff' }}>
+        <div
+          style={{
+            display: 'flex',
+            marginTop: 40,
+            fontSize: 56,
+            color: '#ffffff',
+            textTransform: 'uppercase',
+          }}
+        >
           Vous avez l&apos;idée ?
         </div>
         <div
           style={{
             display: 'flex',
             alignSelf: 'flex-start',
-            marginTop: 16,
-            padding: '4px 20px',
-            fontSize: 34,
+            marginTop: 12,
+            padding: '4px 24px',
+            fontSize: 52,
             color: '#15112b',
             background: '#ff4fa3',
             border: '5px solid #15112b',
