@@ -18,6 +18,7 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Compétences : cartes en 2×2 dès la tablette, badges en grille 2 colonnes.
 - Nouvelle section Offres (« Ce que je livre ») : 6 cartes colorées avec délai indicatif, entrée « Offres » dans la navigation.
 - Favicon `icon.svg` (AB jaune sur rose) ; images de partage OpenGraph et Twitter 1200×630 générées par Next (Lilita One embarquée dans `src/app/fonts/`), balises `twitter:card` ajoutées.
+- SEO : `robots.ts`, `sitemap.ts`, canonical, JSON-LD `Person`, titre raccourci (`src/app/site.ts` centralise URL et titre).
 
 ## En cours
 - Rien d'ouvert.
@@ -40,6 +41,7 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Badges du hero supprimés : le sous-titre suffit, le code couleur des profils reste dans le filtre Projets.
 
 ## Points ouverts / blocages
+- À faire hors code : ajouter le site dans Google Search Console et soumettre le sitemap ; vérifier la redirection www / sans www dans Vercel.
 - Favicon : dans un SVG, Lilita One n'est pas chargée par le navigateur (repli Arial Black) ; convertir « AB » en tracé si le rendu déçoit.
 - Délais de la section Offres : ordres de grandeur à ajuster (`offers` dans `Offers.tsx`).
 - Contrôle visuel mobile à faire pour le hero (pile de briques) et les nouvelles cartes.
