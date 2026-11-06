@@ -17,6 +17,7 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Hero : animation d'entrée « briques » + pile de tétrominos qui tombe au fond (CSS, `prefers-reduced-motion` respecté) ; badges « Profil » retirés (doublon du sous-titre) ; tient dans 100dvh en mobile (sauf iPhone SE, accepté).
 - Compétences : cartes en 2×2 dès la tablette, badges en grille 2 colonnes.
 - Nouvelle section Offres (« Ce que je livre ») : 6 cartes colorées avec délai indicatif, entrée « Offres » dans la navigation.
+- Favicon `icon.svg` (AB jaune sur rose) ; images de partage OpenGraph et Twitter 1200×630 générées par Next (Lilita One embarquée dans `src/app/fonts/`), balises `twitter:card` ajoutées.
 
 ## En cours
 - Rien d'ouvert.
@@ -38,6 +39,7 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Badges du hero supprimés : le sous-titre suffit, le code couleur des profils reste dans le filtre Projets.
 
 ## Points ouverts / blocages
+- Favicon : dans un SVG, Lilita One n'est pas chargée par le navigateur (repli Arial Black) ; convertir « AB » en tracé si le rendu déçoit.
 - Délais de la section Offres : ordres de grandeur à ajuster (`offers` dans `Offers.tsx`).
 - Contrôle visuel mobile à faire pour le hero (pile de briques) et les nouvelles cartes.
 - `npm audit` : 9 alertes restantes (postcss dans Next, minimatch dans typescript-eslint) ; à rechecker à la prochaine release 15.x de Next.

@@ -23,7 +23,6 @@ export const metadata: Metadata = {
     title: 'Antoine Bottin · Product Builder No-code & Développeur React / Next.js',
     description:
         'Product Builder No-code et développeur React / Next.js : cadrage, modélisation de données, automatisations, agents IA et sites web en production.',
-    icons: [{ rel: 'icon', url: '/favicon.ico' }],
     keywords: [
         'Antoine Bottin',
         'Product Builder',
@@ -41,10 +40,14 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Antoine Bottin · Product Builder No-code & Développeur React / Next.js',
         description: 'Je conçois des produits de bout en bout, du recueil du besoin au prototype.',
-        images: [{ url: '/assets/pictures/photo_cv.jpg' }],
         type: 'website',
         url: 'https://www.portfolio.abottin.dev',
         locale: 'fr_FR',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Antoine Bottin · Product Builder No-code & Développeur React / Next.js',
+        description: 'Je conçois des produits de bout en bout, du recueil du besoin au prototype.',
     },
 }
 
