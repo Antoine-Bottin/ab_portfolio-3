@@ -14,12 +14,15 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Bug polices corrigé (variables `next/font` déplacées sur `<html>`).
 - Hero : accroche « Vous avez l'idée ? Voyons comment la réaliser. » ; présentation complète déplacée dans la section Profil, avec 3 chiffres clés (5 ans, 6 devs, 10 ans) à la place des cartes.
 - Dépendances : `next` 15.5.29 ; `nodemailer` retiré (pas de formulaire de contact) ; `npm run build` OK.
+- Hero : animation d'entrée « briques » + pile de tétrominos qui tombe au fond (CSS, `prefers-reduced-motion` respecté) ; badges « Profil » retirés (doublon du sous-titre) ; tient dans 100dvh en mobile (sauf iPhone SE, accepté).
+- Compétences : cartes en 2×2 dès la tablette, badges en grille 2 colonnes.
+- Nouvelle section Offres (« Ce que je livre ») : 6 cartes colorées avec délai indicatif, entrée « Offres » dans la navigation.
 
 ## En cours
 - Rien d'ouvert.
 
 ## Prochaine étape
-- Contrôle visuel complet dans le navigateur (`npm run dev`) : desktop, mobile, snap scroll sur Projets et Expérience.
+- Contrôle visuel complet dans le navigateur (`npm run dev`) : desktop, mobile, snap scroll sur Projets et Expérience, section Offres.
 - Vérifier que les polices (Lilita One / Open Sans) s'affichent bien et décider pour Lovelo.
 
 ## Décisions (avec le pourquoi)
@@ -31,8 +34,12 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 
 - `npm audit fix --force` refusé : imposerait Next 16 et rétrograderait typescript-eslint pour des alertes sans impact (postcss embarqué dans Next au build, minimatch en lint dev).
 - Pas de formulaire de contact : LinkedIn, téléphone et mail suffisent, donc `nodemailer` retiré.
+- Offres sans prix, avec « délais indicatifs » : pas d'engagement chiffré avant d'avoir des durées réelles.
+- Badges du hero supprimés : le sous-titre suffit, le code couleur des profils reste dans le filtre Projets.
 
 ## Points ouverts / blocages
+- Délais de la section Offres : ordres de grandeur à ajuster (`offers` dans `Offers.tsx`).
+- Contrôle visuel mobile à faire pour le hero (pile de briques) et les nouvelles cartes.
 - `npm audit` : 9 alertes restantes (postcss dans Next, minimatch dans typescript-eslint) ; à rechecker à la prochaine release 15.x de Next.
 - Lovelo : licence web à acheter, sinon on garde Lilita One.
 - Logos de `public/assets/icons/` inutilisés : supprimer ou utiliser en vignettes ?

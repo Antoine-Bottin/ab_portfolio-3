@@ -7,6 +7,7 @@ import './styles.scss'
 const navItems = [
   { name: 'Accueil', href: '#home' },
   { name: 'Profil', href: '#about' },
+  { name: 'Offres', href: '#offers' },
   { name: 'Projets', href: '#projects' },
   { name: 'Expérience', href: '#experience' },
   { name: 'Compétences', href: '#skills' },
