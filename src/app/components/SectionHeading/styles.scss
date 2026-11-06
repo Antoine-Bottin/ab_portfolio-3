@@ -1,0 +1,33 @@
+@use 'mixins' as *;
+
+.section-heading {
+  margin-bottom: var(--space-8);
+
+  &__title {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-display);
+    text-transform: uppercase;
+    // Surlignage jaune « marqueur » derrière le titre
+    background: linear-gradient(transparent 60%, var(--palette-yellow) 60%);
+  }
+
+  &__subtitle {
+    max-width: 70rem;
+    margin-top: var(--space-4);
+    font-size: var(--font-size-lg);
+  }
+
+  &--inverse &__title {
+    color: var(--color-text-highlight);
+    text-shadow: var(--shadow-yellow);
+    background: none;
+  }
+
+  &--inverse &__subtitle {
+    color: var(--color-text-inverse);
+  }
+}

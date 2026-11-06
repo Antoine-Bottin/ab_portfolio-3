@@ -1,0 +1,104 @@
+@use 'mixins' as *;
+
+.navigation {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: var(--z-sticky);
+  background: var(--color-bg);
+  border-bottom: var(--border);
+
+  &__skip {
+    position: absolute;
+    top: var(--space-2);
+    left: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--palette-yellow);
+    color: var(--palette-ink);
+    border: var(--border);
+    transform: translateY(-20rem);
+
+    &:focus {
+      transform: none;
+    }
+  }
+
+  &__bar {
+    @include container;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6.4rem;
+  }
+
+  &__brand {
+    color: var(--palette-ink);
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    letter-spacing: var(--letter-spacing-display);
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: var(--palette-pink-ink);
+    }
+  }
+
+  &__toggle {
+    display: inline-flex;
+    padding: var(--space-2);
+    background: var(--palette-yellow);
+    border: var(--border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+
+    @include up(md) {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    padding: var(--space-3) var(--container-padding) var(--space-5);
+    background: var(--color-bg);
+    border-bottom: var(--border);
+
+    &--open {
+      display: flex;
+    }
+
+    @include up(md) {
+      position: static;
+      display: flex;
+      flex-direction: row;
+      gap: var(--space-5);
+      padding: 0;
+      background: none;
+      border: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: var(--space-2) 0;
+    color: var(--palette-ink);
+    font-family: var(--font-display);
+    font-size: var(--font-size-sm);
+    letter-spacing: var(--letter-spacing-display);
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: var(--palette-pink-ink);
+      text-decoration: underline;
+      text-decoration-thickness: 0.3rem;
+      text-underline-offset: 0.5rem;
+    }
+  }
+}

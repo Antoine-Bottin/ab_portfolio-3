@@ -1,0 +1,70 @@
+@use 'mixins' as *;
+
+.footer {
+  padding-block: var(--space-8);
+  background: var(--palette-ink);
+  color: var(--palette-white);
+
+  &__inner {
+    @include container;
+  }
+
+  &__grid {
+    display: grid;
+    gap: var(--space-6);
+
+    @include up(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__brand,
+  &__title {
+    margin-bottom: var(--space-3);
+    font-family: var(--font-display);
+    letter-spacing: var(--letter-spacing-display);
+    text-transform: uppercase;
+    color: var(--color-text-highlight);
+  }
+
+  &__brand {
+    font-size: var(--font-size-xl);
+  }
+
+  &__title {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-regular);
+  }
+
+  &__links,
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    font-style: normal;
+  }
+
+  &__link {
+    color: var(--palette-white);
+
+    &:hover {
+      color: var(--palette-yellow);
+    }
+  }
+
+  &__legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+    border-top: var(--border-width) solid var(--palette-navy);
+    font-size: var(--font-size-sm);
+  }
+
+  // Focus lisible sur fond encre
+  :focus-visible {
+    outline-color: var(--palette-yellow);
+  }
+}

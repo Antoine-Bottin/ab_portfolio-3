@@ -1,0 +1,74 @@
+@use 'mixins' as *;
+
+.skills {
+  @include section;
+  background: var(--palette-white);
+  border-block: var(--border);
+
+  &__inner {
+    @include container;
+  }
+
+  &__grid {
+    display: grid;
+    gap: var(--space-6);
+
+    @include up(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include up(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    padding: var(--space-5);
+    background: var(--color-bg);
+    border: var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+  }
+
+  &__card-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-regular);
+    letter-spacing: var(--letter-spacing-display);
+    text-transform: uppercase;
+  }
+
+  &__icon {
+    display: flex;
+    padding: var(--space-2);
+    color: var(--palette-ink);
+    border: var(--border);
+    border-radius: var(--radius-sm);
+
+    &--green {
+      background: var(--color-brick-green);
+    }
+    &--cyan {
+      background: var(--color-brick-cyan);
+    }
+    &--pink {
+      background: var(--color-brick-pink);
+    }
+    &--orange {
+      background: var(--color-brick-orange);
+    }
+    &--yellow {
+      background: var(--color-brick-yellow);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+}
