@@ -90,6 +90,26 @@
     font-weight: var(--font-weight-semibold);
   }
 
+  &__hook {
+    font-family: var(--font-display);
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-display);
+    text-transform: uppercase;
+  }
+
+  // Fond rose + encre (6.02:1) : la couleur ne porte pas le sens, le texte est lisible seul
+  &__hook-accent {
+    display: inline-block;
+    padding: 0 var(--space-3);
+    background: var(--palette-pink);
+    color: var(--palette-ink);
+    border: var(--border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    transform: rotate(-1deg);
+  }
+
   &__tagline {
     max-width: 60rem;
     font-size: var(--font-size-lg);
