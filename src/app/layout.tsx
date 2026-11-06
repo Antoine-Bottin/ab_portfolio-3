@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Open_Sans, Lilita_One } from 'next/font/google'
 import '../styles/tokens.scss'
-import './globals.css'
+import './globals.scss'
 import { Analytics } from '@vercel/analytics/next'
 
 const openSans = Open_Sans({
