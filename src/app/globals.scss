@@ -9,20 +9,6 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 6.4rem; // hauteur de la navigation fixe
-  // « proximity » : n'accroche que près d'une section, sans piéger les sections plus hautes que l'écran
-  scroll-snap-type: y proximity;
-}
-
-main > section,
-footer {
-  scroll-snap-align: start;
-}
-
-// Desktop : accroche stricte. Une section plus haute que l'écran reste scrollable librement à l'intérieur.
-@include up(lg) {
-  html {
-    scroll-snap-type: y mandatory;
-  }
 }
 
 body {
@@ -75,7 +61,6 @@ button {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-    scroll-snap-type: none;
   }
 
   *,

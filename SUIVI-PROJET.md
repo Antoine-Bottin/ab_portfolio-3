@@ -6,7 +6,7 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 
 ## Fait
 - Tokens CSS (`src/styles/tokens.scss`), `DESIGN.md`, Sass installé, polices via `next/font` (Open Sans, Lilita One).
-- Tailwind retiré ; SCSS BEM global (`globals.scss`, `_mixins.scss`), snap scroll (mandatory desktop, proximity ailleurs).
+- Tailwind retiré ; SCSS BEM global (`globals.scss`, `_mixins.scss`).
 - Composants refaits en dossier par composant : Navigation, Hero, About (Profil), Projects, Experience, Skills, Contact, Footer, + SectionHeading et Tag.
 - Contenu réécrit en français depuis le CV ; compteur d'expérience (`dayjs`) retiré.
 - Projets : 4 du CV + Stemz, Color Pop, Site MwM, Leatherspa ; filtre par profil (un projet peut avoir les deux) ; PlayOff en orange (projet de formation).
@@ -25,12 +25,12 @@ Refonte du portfolio (Next.js) pour présenter deux profils au même niveau : Pr
 - Rien d'ouvert.
 
 ## Prochaine étape
-- Contrôle visuel complet dans le navigateur (`npm run dev`) : desktop, mobile, snap scroll sur Projets et Expérience, section Offres.
+- Contrôle visuel complet dans le navigateur (`npm run dev`) : desktop, mobile, section Offres.
 - Vérifier que les polices (Lilita One / Open Sans) s'affichent bien.
 
 ## Décisions (avec le pourquoi)
 - Site en français : le CV et le DESIGN.md le sont.
-- Snap scroll `mandatory` seulement ≥ 1024 px, désactivé avec `prefers-reduced-motion` : évite de piéger la lecture sur mobile.
+- Snap scroll retiré (premier retour testeur : pénible) : défilement libre, seul le défilement doux vers les ancres est gardé.
 - Entreprise (MWM, LeatherSpa) affichée en ligne de contexte, pas en tag : un tag = une catégorie de profil.
 - Barres de pourcentage de compétences retirées : peu informatives et portées par la couleur seule.
 - Vidéos retirées : chaque projet a son site en ligne, et elles alourdissaient le dépôt.
